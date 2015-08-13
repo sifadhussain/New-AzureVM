@@ -1,0 +1,83 @@
+﻿<Window x:Class="WpfApplication2.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	mc:Ignorable="d" x:Name="wdwMain"
+    Title="New Azure VM" Height="475" Width="525" ResizeMode="NoResize" Icon="C:\Getronics\New-AzureVM\assets\New-AzureVM.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="439*"/>
+            <ColumnDefinition Width="80*"/>
+        </Grid.ColumnDefinitions>
+        <Image HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Source="C:\Getronics\New-AzureVM\assets\New-AzureVM.png"/>
+        <TextBox x:Name="txtVMName" HorizontalAlignment="Left" Height="25" Margin="86,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" Cursor="IBeam" ToolTip="Enter a name fot the new VM." BorderThickness="1" VerticalContentAlignment="Center" FontSize="14" FontWeight="Bold" TextAlignment="Center" TabIndex="1"/>
+        <Label x:Name="lblVMName" Content="VM Name:" HorizontalAlignment="Left" Margin="20,121,0,0" VerticalAlignment="Top" Cursor="Arrow" ToolTip="Enter a name fot the new VM." Height="25" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblOS" Content="Operating System:" HorizontalAlignment="Left" Margin="20,154,0,0" VerticalAlignment="Top" Cursor="Arrow" ToolTip="Select the Operating System." VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="cmbOS" HorizontalAlignment="Left" Margin="127,154,0,0" VerticalAlignment="Top" Width="218" ToolTip="Select the Operating System." Cursor="Arrow" Height="25" SelectedIndex="0" VerticalContentAlignment="Center" TabIndex="10">
+            <ComboBoxItem Content="Windows Server 2012 R2 Datacenter"/>
+            <ComboBoxItem Content="Windows Server 2008 R2 SP1"/>
+        </ComboBox>
+        <Label x:Name="lblSize" Content="Size:" HorizontalAlignment="Right" Margin="0,154,45,0" VerticalAlignment="Top" Cursor="Arrow" ToolTip="Select the T-shirt size for the new VM." Width="32" Height="25" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblLocation" Content="Location:" HorizontalAlignment="Right" Margin="0,124,55,0" VerticalAlignment="Top" Cursor="Arrow" ToolTip="Select the location for the new VM." Height="25" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="cmbLocation" HorizontalAlignment="Right" Margin="0,124,30,0" VerticalAlignment="Top" Width="105" ToolTip="Select the T-shirt size for the new VM." Cursor="Arrow" Height="25" SelectedIndex="1" VerticalContentAlignment="Center" Grid.ColumnSpan="2" TabIndex="5">
+            <ComboBoxItem Content="North Europe" Cursor="Arrow"/>
+            <ComboBoxItem Content="West Europe"/>
+        </ComboBox>
+        <Button x:Name="btnOK" Content="OK" Margin="223,402,140,0" VerticalAlignment="Top" ToolTip="Click OK to create VM in Azure." Cursor="Arrow" BorderThickness="2" Height="25"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="1" Margin="0,184,5,0" Stroke="Black" VerticalAlignment="Top" Width="465" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblSubscription" Content="Subscription:" HorizontalAlignment="Left" Margin="20,189,341,0" VerticalAlignment="Top" Cursor="Arrow" ToolTip="Select the Azure subscription." VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="cmbSubscription" HorizontalAlignment="Right" Margin="0,190,30,0" VerticalAlignment="Top" Width="391" ToolTip="Select the Azure subscription." Cursor="Arrow" Height="25" SelectedIndex="0" VerticalContentAlignment="Center" Grid.ColumnSpan="2" TabIndex="20">
+            <ComboBoxItem Content="Pay-As-You-Go"/>
+        </ComboBox>
+        <Label x:Name="lblService" Content="Service:" HorizontalAlignment="Left" Margin="20,219,0,0" VerticalAlignment="Top" Cursor="Arrow" ToolTip="Select the Azure service." VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="cmbService" HorizontalAlignment="Left" Margin="70,221,0,0" VerticalAlignment="Top" Width="143" ToolTip="Select the Azure service." Cursor="Arrow" Height="25" SelectedIndex="0" VerticalContentAlignment="Center" TabIndex="25">
+            <ComboBoxItem Content="Set to computername"/>
+            <ComboBoxItem Content="demogtn"/>
+            <ComboBoxItem Content="mudur01"/>
+        </ComboBox>
+        <Label x:Name="lblStorageAccount" Content="Storage Account:" HorizontalAlignment="Right" Margin="0,220,111,0" VerticalAlignment="Top" Cursor="Arrow" ToolTip="Select the Azure storage account." VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="cmbStorageAccount" HorizontalAlignment="Right" Margin="0,221,32,0" VerticalAlignment="Top" Width="161" ToolTip="Select the Azure service." Cursor="Arrow" Height="25" SelectedIndex="0" VerticalContentAlignment="Center" Grid.ColumnSpan="2" TabIndex="30">
+            <ComboBoxItem Content="portalvhdslys1ks95rj852"/>
+        </ComboBox>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="1" Margin="0,251,5,0" Stroke="Black" VerticalAlignment="Top" Width="460" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblDiskGB" Content="Extra Disk (GB):" HorizontalAlignment="Left" Margin="20,257,0,0" VerticalAlignment="Top" Cursor="Arrow" ToolTip="Enter a size in GB for the extra disk (0-100). Default of 0 is no extra disk. " VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtDiskGB" HorizontalAlignment="Left" Height="25" Margin="110,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" Cursor="IBeam" ToolTip="Enter a size in GB for the extra disk (0-100). Default of 0 is no extra disk. " BorderThickness="1" VerticalContentAlignment="Center" Text="0" TabIndex="35"/>
+        <Label x:Name="lblDiskLabel" Content="Extra Disk Label:" HorizontalAlignment="Right" Margin="0,257,154,0" VerticalAlignment="Top" Cursor="Arrow" ToolTip="Enter a label for the extra disk." VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtDiskLabel" HorizontalAlignment="Right" Height="25" Margin="0,257,30,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Cursor="IBeam" ToolTip="Enter a label for the extra disk." BorderThickness="1" VerticalContentAlignment="Center" Text="Data Disk" Grid.ColumnSpan="2" TabIndex="40"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="1" Margin="0,287,5,0" Stroke="Black" VerticalAlignment="Top" Width="460" Grid.ColumnSpan="2"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="1" Margin="115,109,30,0" Stroke="Black" VerticalAlignment="Top" Width="370" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblIP" Content="IP:" HorizontalAlignment="Left" Margin="20,293,0,0" VerticalAlignment="Top" Cursor="Arrow" ToolTip="Enter a fixed IP address. 10.10.2.xxx means DHCP." VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtIP" HorizontalAlignment="Left" Height="25" Margin="47,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" Cursor="IBeam" ToolTip="Enter a fixed IP address. 10.10.2.xxx means DHCP." BorderThickness="1" VerticalContentAlignment="Center" Text="10.10.2.xxx" TabIndex="45"/>
+        <Label x:Name="lblSubnet" Content="Subnet name:" HorizontalAlignment="Left" Margin="140,293,0,0" VerticalAlignment="Top" Cursor="Arrow" ToolTip="Select the name of the subnet." VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="cmbSubnet" HorizontalAlignment="Left" Margin="223,293,0,0" VerticalAlignment="Top" Width="93" ToolTip="Select the Azure service." Cursor="Arrow" Height="25" SelectedIndex="0" VerticalContentAlignment="Center" TabIndex="50">
+            <ComboBoxItem Content="AllSystems"/>
+        </ComboBox>
+        <Label x:Name="lblVNet" Content="VNet:" HorizontalAlignment="Right" Margin="0,293,74,0" VerticalAlignment="Top" Cursor="Arrow" ToolTip="Select the name of the VNet." VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="cmbVNet" HorizontalAlignment="Right" Margin="0,293,30,0" VerticalAlignment="Top" Width="124" ToolTip="Select the Azure service." Cursor="Arrow" Height="25" SelectedIndex="0" VerticalContentAlignment="Center" Grid.ColumnSpan="2" TabIndex="55">
+            <ComboBoxItem Content="demogtn"/>
+        </ComboBox>
+        <ComboBox x:Name="cmbSize" HorizontalAlignment="Right" Margin="0,154,30,0" VerticalAlignment="Top" Width="95" ToolTip="Select the T-shirt size for the new VM." Cursor="Arrow" Height="25" SelectedIndex="1" VerticalContentAlignment="Center" Grid.ColumnSpan="2" TabIndex="15">
+            <ComboBoxItem Content="ExtraSmall" Cursor="Arrow"/>
+            <ComboBoxItem Content="Small"/>
+            <ComboBoxItem Content="Medium"/>
+            <ComboBoxItem Content="Large"/>
+            <ComboBoxItem Content="ExtraLarge"/>
+        </ComboBox>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="1" Margin="0,323,5,0" Stroke="Black" VerticalAlignment="Top" Width="460" Grid.ColumnSpan="2"/>
+        <Grid Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="93*"/>
+                <RowDefinition Height="353*"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="blkHeader" HorizontalAlignment="Right" Margin="0,15,30,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="90" Width="360" TextAlignment="Justify" Grid.RowSpan="2" FontSize="11"><Run Text="New-AzureVM allows you to create a new VM in Azure."/><Run Text=" The only required parameter is the VMName. All other default values that you see in the boxes will be applied. The default value of 0GB for the extra disk means that there will be no extra disk created. Leaving the IP address on 10.10.2.xxx gets you an autmatically assigned address."/></TextBlock>
+            <TextBox x:Name="txtDSC" HorizontalAlignment="Right" Height="25" Margin="0,236.667,92,0" VerticalAlignment="Top" Width="304" Cursor="IBeam" ToolTip="Select the DSC configuration file." BorderThickness="1" VerticalContentAlignment="Center" Text="C:\Getronics\New-AzureVM\InitialConfig.ps1" MaxLines="60" TabIndex="60" Grid.Row="1"/>
+            <Button x:Name="btnDSC" Content="Browse" Margin="432,237,30,0" VerticalAlignment="Top" Height="25" ToolTip="Click OK to create VM in Azure." Cursor="Arrow" BorderThickness="1" TabIndex="65" Grid.Row="1"/>
+            <Label x:Name="lblDSC" Content="DSC config file:" HorizontalAlignment="Left" Margin="20,236,0,0" VerticalAlignment="Top" Cursor="Arrow" ToolTip="Select the Operating System." VerticalContentAlignment="Center" Grid.Row="1"/>
+            <Label x:Name="lblWAD" Content="WAD config file:" HorizontalAlignment="Left" Margin="20,267,0,0" VerticalAlignment="Top" Cursor="Arrow" ToolTip="Select the Operating System." VerticalContentAlignment="Center" Grid.Row="1"/>
+            <TextBox x:Name="txtWAD" HorizontalAlignment="Right" Height="25" Margin="0,267.667,92,0" VerticalAlignment="Top" Width="304" Cursor="IBeam" ToolTip="Select the DSC configuration file." BorderThickness="1" VerticalContentAlignment="Center" Text="C:\Getronics\New-AzureVM\wadcfg.xml" TabIndex="70" Grid.Row="1"/>
+            <Button x:Name="btnWAD" Content="Browse" Margin="432,268,30,0" VerticalAlignment="Top" Height="25" ToolTip="Click OK to create VM in Azure." Cursor="Arrow" BorderThickness="1" TabIndex="75" Grid.Row="1"/>
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="1" Margin="0,298.667,5,0" Stroke="Black" VerticalAlignment="Top" Width="460" Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+    </Grid>
+</Window>

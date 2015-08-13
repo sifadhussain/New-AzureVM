@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+<WadCfg>
+<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
+<PerformanceCounters scheduledTransferPeriod="PT5M">
+<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT2M" unit="percent"><annotation displayName="Processor - total processor time" locale="en-us"/></PerformanceCounterConfiguration>
+<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Interrupt Time" sampleRate="PT2M" unit="Percent"><annotation displayName="CPU interrupt time" locale="en-us"/></PerformanceCounterConfiguration>
+<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Privileged Time" sampleRate="PT2M" unit="Percent"><annotation displayName="CPU privileged time" locale="en-us"/></PerformanceCounterConfiguration>
+<PerformanceCounterConfiguration counterSpecifier="\Memory\Available Bytes" sampleRate="PT2M" unit="Bytes"><annotation displayName="Memory available" locale="en-us"/></PerformanceCounterConfiguration>
+<PerformanceCounterConfiguration counterSpecifier="\Memory\Pages/sec" sampleRate="PT2M" unit="CountPerSecond"><annotation displayName="Memory pages" locale="en-us"/></PerformanceCounterConfiguration>
+<PerformanceCounterConfiguration counterSpecifier="\Memory\Cache Faults/sec" sampleRate="PT2M" unit="CountPerSecond"><annotation displayName="Cache faults" locale="en-us"/></PerformanceCounterConfiguration>
+<PerformanceCounterConfiguration counterSpecifier="\Memory\Page Faults/sec" sampleRate="PT2M" unit="CountPerSecond"><annotation displayName="Page faults" locale="en-us"/></PerformanceCounterConfiguration>
+<PerformanceCounterConfiguration counterSpecifier="\Memory\Page Reads/sec" sampleRate="PT2M" unit="CountPerSecond"><annotation displayName="Page reads" locale="en-us"/></PerformanceCounterConfiguration>
+</PerformanceCounters>
+<WindowsEventLog scheduledTransferPeriod="PT1M"><DataSource name="System!*"/><DataSource name="Application!*"/></WindowsEventLog>
+<Metrics resourceId="/subscriptions/SUBSCRIPTION/resourceGroups/RESOURCE_GROUP/providers/Microsoft.ClassicCompute/virtualMachines/VM_NAME"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics>
+</DiagnosticMonitorConfiguration>
+</WadCfg>
+</PublicConfig>
